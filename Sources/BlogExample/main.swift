@@ -4,7 +4,7 @@ import Plot
 
 // This type acts as the configuration for your website.
 struct BlogExample: Website {
-    enum SectionID: String, WebsiteSectionID {
+    enum SectionID: String, WebsiteSectionID, CaseIterable {
         // Add the sections that you want your website to contain here:
         case home
         case posts
