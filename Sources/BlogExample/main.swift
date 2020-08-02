@@ -18,7 +18,7 @@ struct BlogExample: Website {
     }
 
     // Update these properties to configure your website:
-    var url = URL(string: "https://your-website-url.com")!
+    var url = URL(string: "www.swiftblogexample/swiftblogexample.github.io")!
     var name = "BlogExample"
     var description = "A description of BlogExample"
     var language: Language { .english }
@@ -32,4 +32,8 @@ extension Theme where Site == BlogExample {
 }
 
 // This will generate your website using the built-in Foundation theme:
-try BlogExample().publish(withTheme: .myTheme, plugins: [.splash(withClassPrefix: "")])
+try BlogExample().publish(
+    withTheme: .myTheme,
+    deployedUsing: .gitHub("Swiftblogexample/Swiftblogexample.github.io", useSSH: false),
+    plugins: [.splash(withClassPrefix: "")]
+)
