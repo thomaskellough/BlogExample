@@ -18,7 +18,7 @@ struct MyHTMLFactory<Site: Website>: HTMLFactory {
         case "posts":
             return try makePostsHTML(for: section, context: context)
         case "home":
-            return HTML(.text("Hello home!"))
+            return try makeHomeHTML(for: context.index, section: section, context: context)
         case "about":
             return HTML(.text("Hello about!"))
         default:

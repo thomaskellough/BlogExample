@@ -167,3 +167,8 @@ footer {
         padding: 40px 20px;
     }
 }
+
+.logo-image img {
+    width: 30%;
+    margin: 20px;
+}
