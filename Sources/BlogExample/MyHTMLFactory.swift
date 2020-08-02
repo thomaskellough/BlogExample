@@ -39,6 +39,16 @@ struct MyHTMLFactory<Site: Website>: HTMLFactory {
     }
 
     func makeTagDetailsHTML(for page: TagDetailsPage, context: PublishingContext<Site>) throws -> HTML? {
-        HTML(.text("Hello, tag details"))
+        HTML(
+            .head(for: context.index, on: context.site),
+            .body(
+                .myHeader(for: context),
+                .h1(
+                    .text("All posts with the tag \(page.tag.string)")
+                ),
+                .postContent(for: context.items(taggedWith: page.tag), on: context.site),
+                .myFooter(for: context.site)
+            )
+        )
     }
 }
