@@ -42,6 +42,7 @@ extension Node where Context == HTML.BodyContext {
                                         .text(item.title)
                                     )
                                 ),
+                                .tagList(for: item.tags, on: site),
                                 // Creates a description  of what our post is about
                                 .p(.text(item.description)),
                                 .p(.text("Published: \(formatter.string(from: item.lastModified))"))
