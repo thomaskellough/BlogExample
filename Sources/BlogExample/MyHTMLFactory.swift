@@ -14,7 +14,16 @@ struct MyHTMLFactory<Site: Website>: HTMLFactory {
     }
 
     func makeSectionHTML(for section: Section<Site>, context: PublishingContext<Site>) throws -> HTML {
-        try makePostsHTML(for: section, context: context)
+        switch section.id.rawValue {
+        case "posts":
+            return try makePostsHTML(for: section, context: context)
+        case "home":
+            return HTML(.text("Hello home!"))
+        case "about":
+            return HTML(.text("Hello about!"))
+        default:
+            return try makePostsHTML(for: section, context: context)
+        }
     }
 
     func makeItemHTML(for item: Item<Site>, context: PublishingContext<Site>) throws -> HTML {
