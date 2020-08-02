@@ -10,7 +10,10 @@ import Plot
 
 struct MyHTMLFactory: HTMLFactory {
     func makeIndexHTML(for index: Index, context: PublishingContext<BlogExample>) throws -> HTML {
-        HTML(.text("Hello, index"))
+        let sections = context.sections
+        let section = sections.first(where: { $0.id.rawValue == "home" })!
+        
+        return try makeHomeHTML(for: index, section: section, context: context)
     }
 
     func makeSectionHTML(for section: Section<BlogExample>, context: PublishingContext<BlogExample>) throws -> HTML {

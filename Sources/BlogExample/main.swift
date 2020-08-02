@@ -1,6 +1,7 @@
 import Foundation
 import Publish
 import Plot
+import SplashPublishPlugin
 
 // This type acts as the configuration for your website.
 struct BlogExample: Website {
@@ -31,4 +32,4 @@ extension Theme where Site == BlogExample {
 }
 
 // This will generate your website using the built-in Foundation theme:
-try BlogExample().publish(withTheme: .myTheme)
+try BlogExample().publish(withTheme: .myTheme, plugins: [.splash(withClassPrefix: "")])
