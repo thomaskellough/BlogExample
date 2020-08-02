@@ -21,5 +21,11 @@ struct BlogExample: Website {
     var imagePath: Path? { nil }
 }
 
+extension Theme where Site == BlogExample {
+    static var myTheme: Theme {
+        Theme(htmlFactory: MyHTMLFactory(), resourcePaths: ["Resources/MyTheme/styles.css"])
+    }
+}
+
 // This will generate your website using the built-in Foundation theme:
-try BlogExample().publish(withTheme: .foundation)
+try BlogExample().publish(withTheme: .myTheme)
