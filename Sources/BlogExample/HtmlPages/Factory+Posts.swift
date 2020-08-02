@@ -13,6 +13,7 @@ extension MyHTMLFactory {
          HTML(
             .head(for: context.index, on: context.site),
             .body(
+                .myHeader(for: context),
                 .postContent(for: section.items, on: context.site)
             )
         )

@@ -26,7 +26,7 @@ body {
 }
 
 header {
-    background-color: #eee;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 2%, rgba(9,9,121,1) 29%, rgba(0,212,255,1) 100%);
 }
 
 header .wrapper {
