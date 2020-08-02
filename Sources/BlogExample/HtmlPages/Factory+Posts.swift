@@ -16,6 +16,7 @@ extension MyHTMLFactory {
                 // Create an unordered list
                 .ul(
                     // Loop over each blog post that we have in our code
+                    .class("item-list"),
                     .forEach(
                         section.items
                     ) { item in
